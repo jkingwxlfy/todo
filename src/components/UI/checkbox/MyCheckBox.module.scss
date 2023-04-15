@@ -1,0 +1,38 @@
+.real_checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.real_checkbox:checked + .custom_checkbox:before {
+    
+        opacity: 1;
+    
+}
+
+.custom_checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid rgb(204, 161, 212);
+    border-radius: 5px;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        transition: all 0.2s ease;
+        width: 10px;
+        height: 5px;
+        border-radius: 1px;
+        border-left: 4px solid #e145a3;
+        border-bottom: 4px solid #e145a3;
+        transform: rotate(-45deg);
+        top: 2px;
+        left: 1px;
+        opacity: 0;
+    }
+}
+
