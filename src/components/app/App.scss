@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100%;
+}
+
 .app {
     margin: 0 auto;
     display: flex;
@@ -15,9 +19,9 @@
 
 .title {
     margin-top: 100px;
+    margin-bottom: 30px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 2px;
-    color:rgb(154, 98, 164);
+    color:black;
     font-weight: 400;
-    
 }

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import PostForm from '../postForm/PostForm';
 import TodoList from '../todoList/TodoList';
 import Filter from '../filter/Filter';
+import MyModal from '../UI/modal/MyModal';
+import MyButton from '../UI/button/MyButton';
 
 import './App.scss';
 
@@ -15,6 +17,11 @@ function App() {
         { id: 3, title: 'some todo', completed: false },
     ]);
     const [filter, setFilter] = useState('all');
+    const [isShowModal, setIsShowModal] = useState(false);
+
+    function onOpenModal() {
+        setIsShowModal(!isShowModal);
+    }
 
     function onAddTodo(input) {
         setTodos([...todos, { id: Date.now(), title: input, completed: false }])
@@ -48,14 +55,19 @@ function App() {
         }
     }
 
-    const visibleTodos = onFilterTodos(filter, todos)
+    const visibleTodos = onFilterTodos(filter, todos);
 
     return (
         <div className="app">
             <h1 className="title">Todos</h1>
-            <PostForm
-                onAddTodo={onAddTodo}
-            />
+            <MyButton onClick={onOpenModal}>
+                Create todo
+            </MyButton>
+            <MyModal isShowModal={isShowModal}>
+                <PostForm
+                    onAddTodo={onAddTodo}
+                />
+            </MyModal>
             <TodoList
                 todos={visibleTodos}
                 onDeleteTodo={onDeleteTodo}
